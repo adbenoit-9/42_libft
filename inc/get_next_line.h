@@ -6,7 +6,7 @@
 /*   By: adbenoit <adbenoit@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/14 14:17:42 by adbenoit          #+#    #+#             */
-/*   Updated: 2021/01/06 03:00:52 by adbenoit         ###   ########.fr       */
+/*   Updated: 2021/01/06 22:24:15 by adbenoit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,17 +14,20 @@
 # define GET_NEXT_LINE_H
 
 # include <stdio.h>
+# include <unistd.h>
+# include <stdlib.h>
+#include <sys/types.h>
+#include <sys/stat.h>
+#include <fcntl.h>
 
-# define BUFFER_SIZE 4097
+# define BUFFER_SIZE 4096
 
-typedef struct	s_tab
+typedef struct	s_gnl
 {
 	int		fd;
-	int		ret;
-	size_t	size;
-}				t_tab;
+	size_t	len;
+}				t_gnl;
 
 int				get_next_line(int fd, char **line);
-void			ft_bufcpy(char *buf);
 
 #endif

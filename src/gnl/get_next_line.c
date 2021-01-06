@@ -6,38 +6,70 @@
 /*   By: adbenoit <adbenoit@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/12 15:44:13 by adbenoit          #+#    #+#             */
-/*   Updated: 2021/01/06 16:11:28 by adbenoit         ###   ########.fr       */
+/*   Updated: 2021/01/06 22:23:42 by adbenoit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	ft_get_line(char *buf, size_t *len, t_list **lst)
+static void	ft_reset_buf(char *buf)
 {
-	int		i;
+	size_t	i;
+	size_t	j;
+
+	i = 0;
+	while (buf[i] && buf[i] != '\n')
+		++i;
+	++i;
+	j = 0;
+	while (buf[i])
+	{
+		buf[j] = buf[i];
+		++i;
+		++j;
+	}
+	buf[j] = 0;
+}
+
+static int	ft_set_line(char *buf, size_t *len, t_list **lst)
+{
+	size_t	i;
 	char	*str;
 	t_list	*new;
 
-	i = -1;
-	while (buf[++i] && buf[i] != '\n')
+	i = 0;
+	while (buf[i] && buf[i] != '\n')
+	{
 		++(*len);
-	if (!(str = ft_strndup(buf, i)))
-		return (0);
-	if (!(new = ft_lstnew(str)))
+		++i;
+	}
+	str = ft_strndup(buf, i);
+	new = ft_lstnew(str);
+	if (str == NULL || new == NULL)
 	{
 		free(str);
-		return (0);
+		return (-1);
 	}
 	ft_lstadd_back(lst, new);
 	if (buf[i] == '\n')
 		return (1);
-	return (-1);
+	return (0);
 }
 
-static void	ft_put_line(t_list **lst, char **line)
+static int	ft_put_line(t_list **lst, char **line, size_t len)
 {
 	t_list	*tmp;
+	size_t	i;
 
+	*line = (char *)malloc(len + 1);
+	if (*line == NULL)
+		return (-1);
+	i = 0;
+	while (i < len + 1)
+	{
+		(*line)[i] = 0;
+		++i;
+	}
 	tmp = *lst;
 	while (*lst)
 	{
@@ -45,66 +77,56 @@ static void	ft_put_line(t_list **lst, char **line)
 		*lst = (*lst)->next;
 	}
 	ft_lstclear(&tmp, free);
-	return ;
-}
-
-static int	ft_set_line(char **line, t_tab *tab, t_list **lst, char *buf)
-{
-	long int		ret;
-	int				k;
-
-	while ((ret = read(tab->fd, buf, BUFFER_SIZE)) == BUFFER_SIZE)
-	{
-		if (ret < 0 || (k = ft_get_line(buf, &tab->size, lst)) == 0)
-			return (-1);
-		if (k == 1 || ret == 0)
-			break ;
-	}
-	buf[ret] = 0;
-	if ((k = ft_get_line(buf, &tab->size, lst)) == 0)
-		return (-1);
-	if (ret < BUFFER_SIZE && k == -1)
-	{
-		if (!((*line) = ft_calloc(sizeof(char), tab->size + 1)))
-			return (-1);
-		ft_put_line(lst, line);
-		buf[0] = 0;
-		return (0);
-	}
 	return (1);
 }
 
-static int	ft_err(t_list **lst, int ret)
+static int	ft_get_line(char **line, t_gnl *gnl, t_list **lst, char *buf)
 {
-	ft_lstclear(lst, free);
-	return (ret);
+	long int	ret;
+	int			status;
+
+	ret = read(gnl->fd, buf, BUFFER_SIZE);
+	buf[ret] = 0;
+	while (ret == BUFFER_SIZE)
+	{
+		status = ft_set_line(buf, &gnl->len, lst);
+		if (status == -1)
+			return (-1);
+		if (status == 1)
+			break ;
+		ret = read(gnl->fd, buf, BUFFER_SIZE);
+		buf[ret] = 0;
+	}
+	if (ret < BUFFER_SIZE)
+		status = ft_set_line(buf, &gnl->len, lst);
+	if (status == 0)
+	{
+		ft_put_line(lst, line, gnl->len);
+		buf[0] = 0;
+	}
+	return (status);
 }
 
 int			get_next_line(int fd, char **line)
 {
-	t_tab			tab;
+	t_gnl			gnl;
 	static char		buf[BUFFER_SIZE + 1];
 	t_list			*lst;
-	int				k;
+	int				status;
 
-	tab.size = 0;
-	tab.fd = fd;
+	gnl.len = 0;
+	gnl.fd = fd;
 	lst = NULL;
-	if (fd < 0)
+	if (fd < 0 || BUFFER_SIZE <= 0)
 		return (-1);
-	if ((k = ft_get_line(buf, &tab.size, &lst)) == 0)
-		return (-1);
-	if (k == 1 && buf[0] != 0)
-		ft_bufcpy(buf);
-	else
+	status = ft_set_line(buf, &gnl.len, &lst);
+	if (status == 0)
+		status = ft_get_line(line, &gnl, &lst, buf);
+	if (status == 1)
 	{
-		tab.ret = BUFFER_SIZE == 0 ? -1 : ft_set_line(line, &tab, &lst, buf);
-		if (tab.ret != 1)
-			return (ft_err(&lst, tab.ret));
-		ft_bufcpy(buf);
+		ft_reset_buf(buf);
+		return (ft_put_line(&lst, line, gnl.len));
 	}
-	if (!((*line) = ft_calloc(sizeof(char), tab.size + 1)))
-		return (ft_err(&lst, -1));
-	ft_put_line(&lst, line);
-	return (1);
+	ft_lstclear(&lst, free);
+	return (status);
 }

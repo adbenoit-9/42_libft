@@ -6,7 +6,7 @@
 #    By: adbenoit <adbenoit@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/09/13 18:38:18 by adbenoit          #+#    #+#              #
-#    Updated: 2021/01/06 15:48:58 by adbenoit         ###   ########.fr        #
+#    Updated: 2021/01/06 22:24:35 by adbenoit         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -57,7 +57,7 @@ LST			=	ft_lstnew.c			ft_lstadd_front.c	ft_lstsize.c \
 TAB			=	ft_puttab_fd.c		ft_realloc_tab.c	ft_tabdup.c \
 				ft_freetab.c		ft_tabsize.c
 
-GNL			=	get_next_line.c		get_next_line_utils.c
+GNL			=	get_next_line.c
 				
 
 OBJ_PATH	=	obj/
