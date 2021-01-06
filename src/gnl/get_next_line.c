@@ -6,7 +6,7 @@
 /*   By: adbenoit <adbenoit@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/12 15:44:13 by adbenoit          #+#    #+#             */
-/*   Updated: 2021/01/06 16:03:58 by adbenoit         ###   ########.fr       */
+/*   Updated: 2021/01/06 16:11:28 by adbenoit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,10 +74,10 @@ static int	ft_set_line(char **line, t_tab *tab, t_list **lst, char *buf)
 	return (1);
 }
 
-static int	ft_err(t_list **lst)
+static int	ft_err(t_list **lst, int ret)
 {
 	ft_lstclear(lst, free);
-	return (-1);
+	return (ret);
 }
 
 int			get_next_line(int fd, char **line)
@@ -98,15 +98,13 @@ int			get_next_line(int fd, char **line)
 		ft_bufcpy(buf);
 	else
 	{
-		tab.ret = ft_set_line(line, &tab, &lst, buf);
-		if (BUFFER_SIZE == 0 || tab.ret == -1)
-			return (ft_err(&lst));
-		if (tab.ret == 0)
-			return (0);
+		tab.ret = BUFFER_SIZE == 0 ? -1 : ft_set_line(line, &tab, &lst, buf);
+		if (tab.ret != 1)
+			return (ft_err(&lst, tab.ret));
 		ft_bufcpy(buf);
 	}
 	if (!((*line) = ft_calloc(sizeof(char), tab.size + 1)))
-		return (ft_err(&lst));
+		return (ft_err(&lst, -1));
 	ft_put_line(&lst, line);
 	return (1);
 }
