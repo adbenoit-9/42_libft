@@ -6,7 +6,7 @@
 /*   By: adbenoit <adbenoit@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/08 20:16:25 by adbenoit          #+#    #+#             */
-/*   Updated: 2021/01/06 01:56:54 by adbenoit         ###   ########.fr       */
+/*   Updated: 2021/01/06 03:08:22 by adbenoit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include <unistd.h>
 # include <stdlib.h>
+# include "get_next_line.h"
 
 typedef struct	s_list
 {
@@ -78,5 +79,8 @@ char			*ft_realloc(char *ptr, size_t newsize);
 char			*ft_strcat(char *dest, const char *src);
 char			**ft_tabdup(char *tab[]);
 size_t			ft_tabsize(char **tab);
+char			*ft_strcpy(char *dest, const char *src);
+char			*ft_strncpy(char *dest, const char *src, size_t n);
+char			*ft_strndup(const char *s1, size_t n);
 
 #endif

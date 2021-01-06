@@ -6,7 +6,7 @@
 #    By: adbenoit <adbenoit@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/09/13 18:38:18 by adbenoit          #+#    #+#              #
-#    Updated: 2021/01/06 01:42:21 by adbenoit         ###   ########.fr        #
+#    Updated: 2021/01/06 03:24:51 by adbenoit         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,7 +34,9 @@ SRC			=	ft_memset.c			ft_bzero.c			ft_memcpy.c \
 				ft_lstdelone.c		ft_lstclear.c		ft_lstiter.c \
 				ft_lstmap.c			ft_puttab_fd.c		ft_realloc_tab.c \
 				ft_tabdup.c			ft_freetab.c		ft_realloc.c \
-				ft_strcat.c			ft_tabsize.c	
+				ft_strcat.c			ft_tabsize.c		ft_strcpy.c \
+				ft_strncpy.c		get_next_line.c		get_next_line_utils.c \
+				ft_strndup.c
 
 OBJ_PATH	=	obj/
 
@@ -44,7 +46,7 @@ OBJ			=	$(addprefix $(OBJ_PATH),$(OBJ_NAME))
 
 CFLAGS		=	-Wall -Wextra -Werror
 
-RM			=	rm -f
+RM			=	rm -rf
 
 ${NAME} : ${OBJ}
 	@ar rc ${NAME} ${OBJ}
@@ -59,7 +61,7 @@ $(OBJ_PATH)%.o:	$(SRC_PATH)%.c $(HEADER)
 	@$(CC) $(CFLAGS) -I$(INC) -c $< -o $@
 
 clean:
-	@${RM} ${OBJ} ${OBJ_BONUS}
+	@${RM} ${OBJ_PATH}
 	@echo "\033[33;1mLibft\033[0;1m: objects deleted\033[0m"
 
 fclean: clean
