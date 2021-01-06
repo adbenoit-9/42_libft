@@ -6,7 +6,7 @@
 /*   By: adbenoit <adbenoit@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/12 15:44:13 by adbenoit          #+#    #+#             */
-/*   Updated: 2021/01/06 03:26:53 by adbenoit         ###   ########.fr       */
+/*   Updated: 2021/01/06 16:03:58 by adbenoit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ static int	ft_set_line(char **line, t_tab *tab, t_list **lst, char *buf)
 		return (-1);
 	if (ret < BUFFER_SIZE && k == -1)
 	{
-		if (!((*line) =ft_calloc(sizeof(char), tab->size + 1)))
+		if (!((*line) = ft_calloc(sizeof(char), tab->size + 1)))
 			return (-1);
 		ft_put_line(lst, line);
 		buf[0] = 0;
@@ -98,7 +98,8 @@ int			get_next_line(int fd, char **line)
 		ft_bufcpy(buf);
 	else
 	{
-		if (BUFFER_SIZE == 0 || (tab.ret = ft_set_line(line, &tab, &lst, buf)) == -1)
+		tab.ret = ft_set_line(line, &tab, &lst, buf);
+		if (BUFFER_SIZE == 0 || tab.ret == -1)
 			return (ft_err(&lst));
 		if (tab.ret == 0)
 			return (0);

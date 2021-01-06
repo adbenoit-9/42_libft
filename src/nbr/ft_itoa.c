@@ -6,7 +6,7 @@
 /*   By: adbenoit <adbenoit@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/07 14:40:10 by adbenoit          #+#    #+#             */
-/*   Updated: 2021/01/06 02:05:56 by adbenoit         ###   ########.fr       */
+/*   Updated: 2021/01/06 16:02:10 by adbenoit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ static size_t	ft_size(int n)
 
 char			*ft_itoa(int n)
 {
-	char			*nb;
+	char	*nb;
 	size_t	neg;
 	size_t	size;
 	size_t	num;

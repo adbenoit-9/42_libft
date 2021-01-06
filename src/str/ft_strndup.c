@@ -6,7 +6,7 @@
 /*   By: adbenoit <adbenoit@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/06 03:04:54 by adbenoit          #+#    #+#             */
-/*   Updated: 2021/01/06 03:20:27 by adbenoit         ###   ########.fr       */
+/*   Updated: 2021/01/06 16:04:56 by adbenoit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,12 @@
 
 char	*ft_strndup(const char *s1, size_t n)
 {
-	char	    *copy;
-	size_t		i;
+	char	*copy;
+	size_t	i;
 
 	i = 0;
-    if (!s1)
-        return (NULL);
+	if (!s1)
+		return (NULL);
 	while (s1[i] && i < n)
 		++i;
 	if (!(copy = malloc(sizeof(char) * (i + 1))))

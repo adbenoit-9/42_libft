@@ -6,7 +6,7 @@
 /*   By: adbenoit <adbenoit@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/06 16:49:10 by adbenoit          #+#    #+#             */
-/*   Updated: 2021/01/06 02:05:42 by adbenoit         ###   ########.fr       */
+/*   Updated: 2021/01/06 16:04:27 by adbenoit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ static size_t	ft_size(char const *s, char c, size_t i)
 
 char			**ft_split(char const *s, char c)
 {
-	char			**tab;
+	char	**tab;
 	size_t	i;
 	size_t	j;
 	size_t	k;
