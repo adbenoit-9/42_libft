@@ -1,6 +1,6 @@
 # LIBFT
 
-"Your very first own library"
+*"Your very first own library"*
 
 ## Objective
 
