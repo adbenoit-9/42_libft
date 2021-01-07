@@ -9,5 +9,4 @@ The aim of this project is to code a C library regrouping usual functions that y
 ## Usage
 
 `make`
-_____
-`make norme`
+util: `make norme`
