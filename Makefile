@@ -6,7 +6,7 @@
 #    By: adbenoit <adbenoit@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/09/13 18:38:18 by adbenoit          #+#    #+#              #
-#    Updated: 2021/01/06 22:24:35 by adbenoit         ###   ########.fr        #
+#    Updated: 2021/01/07 00:02:54 by adbenoit         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -81,7 +81,7 @@ all:	$(NAME)
 $(NAME) : $(OBJ)
 	@ar rc $(NAME) $(OBJ)
 	@printf "\n"
-	@echo "Compilation of \033[33;1mLibft\033[0;1m: [\033[1;32mOK\0]"
+	@echo "Compilation of \033[33;1mLibft\033[0;1m: [\033[1;32mOK\033[0;1m]\033[0m"
 
 $(OBJ_PATH)%.o:	$(CHAR_PATH)%.c $(HEADER)
 	@printf "\033[34;1m|\033[0;m"
