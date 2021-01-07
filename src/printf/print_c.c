@@ -1,33 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.h                                    :+:      :+:    :+:   */
+/*   print_c.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: adbenoit <adbenoit@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/11/14 14:17:42 by adbenoit          #+#    #+#             */
-/*   Updated: 2021/01/07 09:59:41 by adbenoit         ###   ########.fr       */
+/*   Created: 2019/11/07 19:17:19 by adbenoit          #+#    #+#             */
+/*   Updated: 2021/01/07 10:02:32 by adbenoit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE_H
-# define GET_NEXT_LINE_H
+#include "libft.h"
 
-# include <stdio.h>
-# include <unistd.h>
-# include <stdlib.h>
-# include <sys/types.h>
-# include <sys/stat.h>
-# include <fcntl.h>
-
-# define BUFFER_SIZE 4096
-
-typedef struct	s_gnl
+int		print_char(char c)
 {
-	int		fd;
-	size_t	len;
-}				t_gnl;
+	write(1, &c, 1);
+	return (1);
+}
 
-int				get_next_line(int fd, char **line);
-
-#endif
+size_t	print_c(char c, t_arg *format, size_t ret)
+{
+	if (format && format->flag != '-')
+		ret += print_space(format, 1);
+	ret += print_char(c);
+	ret += print_space(format, 1);
+	return (ret);
+}

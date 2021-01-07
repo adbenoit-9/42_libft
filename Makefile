@@ -6,7 +6,7 @@
 #    By: adbenoit <adbenoit@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/09/13 18:38:18 by adbenoit          #+#    #+#              #
-#    Updated: 2021/01/07 00:02:54 by adbenoit         ###   ########.fr        #
+#    Updated: 2021/01/07 10:08:59 by adbenoit         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,6 +27,8 @@ LST_PATH	=	$(SRC_PATH)lst/
 MEM_PATH	=	$(SRC_PATH)mem/
 
 NBR_PATH	=	$(SRC_PATH)nbr/
+
+PF_PATH		=	$(SRC_PATH)printf/
 
 STR_PATH	=	$(SRC_PATH)str/
 
@@ -58,6 +60,10 @@ TAB			=	ft_puttab_fd.c		ft_realloc_tab.c	ft_tabdup.c \
 				ft_freetab.c		ft_tabsize.c
 
 GNL			=	get_next_line.c
+
+PF			= 	ft_setformat.c		print_arg.c			ft_printf.c \
+				print_ux.c			print_p.c 			print_d.c\
+				print_c.c			print_s.c
 				
 
 OBJ_PATH	=	obj/
@@ -67,6 +73,7 @@ OBJ_NAME	+=	$(GNL:.c=.o)
 OBJ_NAME	+=	$(LST:.c=.o)
 OBJ_NAME	+=	$(MEM:.c=.o)
 OBJ_NAME	+=	$(NBR:.c=.o)
+OBJ_NAME	+=	$(PF:.c=.o)
 OBJ_NAME	+=	$(STR:.c=.o)
 OBJ_NAME	+=	$(TAB:.c=.o)
 
@@ -104,6 +111,11 @@ $(OBJ_PATH)%.o:	$(MEM_PATH)%.c $(HEADER)
 	@$(CC) $(CFLAGS) -I$(INC) -c $< -o $@
 
 $(OBJ_PATH)%.o:	$(NBR_PATH)%.c $(HEADER)
+	@printf "\033[34;1m|\033[0;m"
+	@mkdir $(OBJ_PATH) 2> /dev/null || true
+	@$(CC) $(CFLAGS) -I$(INC) -c $< -o $@
+
+$(OBJ_PATH)%.o:	$(PF_PATH)%.c $(HEADER)
 	@printf "\033[34;1m|\033[0;m"
 	@mkdir $(OBJ_PATH) 2> /dev/null || true
 	@$(CC) $(CFLAGS) -I$(INC) -c $< -o $@
