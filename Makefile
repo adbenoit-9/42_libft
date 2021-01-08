@@ -6,7 +6,7 @@
 #    By: adbenoit <adbenoit@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/09/13 18:38:18 by adbenoit          #+#    #+#              #
-#    Updated: 2021/01/08 12:41:11 by adbenoit         ###   ########.fr        #
+#    Updated: 2021/01/08 13:26:59 by adbenoit         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -133,7 +133,7 @@ FILE=norme_error.txt
 ERROR= `cat $(FILE) | grep -B 1 "Error"`
 norme:
 	@printf "\033[33mLaunching ...\033[0m"
-	@~/.norminette/norminette.rb */*/*c */*h > $(FILE)
+	@norminette */*/*c */*h > $(FILE)
 	@printf "\rNorme of \033[33;1mLibft\033[0;1m: [\033[1;32mOK\033[0;1m]\033[0m"
 	@ echo "\r$(ERROR)"
 	@rm $(FILE)
