@@ -6,7 +6,7 @@
 /*   By: adbenoit <adbenoit@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/08 20:16:25 by adbenoit          #+#    #+#             */
-/*   Updated: 2021/01/08 13:53:32 by adbenoit         ###   ########.fr       */
+/*   Updated: 2021/01/08 14:30:19 by adbenoit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include <unistd.h>
 # include <stdlib.h>
+# include <string.h>
 # include "get_next_line.h"
 # include "ft_printf.h"
 
