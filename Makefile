@@ -6,7 +6,7 @@
 #    By: adbenoit <adbenoit@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/09/13 18:38:18 by adbenoit          #+#    #+#              #
-#    Updated: 2021/01/08 13:26:59 by adbenoit         ###   ########.fr        #
+#    Updated: 2021/01/08 13:52:38 by adbenoit         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -35,7 +35,7 @@ STR			=	ft_strlen.c			ft_strchr.c			ft_strrchr.c \
 				ft_strdup.c			ft_substr.c			ft_strmapi.c\
 				ft_split.c			ft_putstr_fd.c		ft_putendl_fd.c \
 				ft_realloc.c		ft_strndup.c		ft_strncpy.c \
-				ft_strcat.c			ft_strcpy.c
+				ft_strcat.c			ft_strcpy.c			ft_strcmp.c
 
 CHAR		=	ft_isalnum.c		ft_isalpha.c		ft_isascii.c \
 				ft_isdigit.c		ft_isprint.c		ft_putchar_fd.c \
