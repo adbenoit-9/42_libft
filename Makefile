@@ -6,32 +6,23 @@
 #    By: adbenoit <adbenoit@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/09/13 18:38:18 by adbenoit          #+#    #+#              #
-#    Updated: 2021/01/08 01:37:44 by adbenoit         ###   ########.fr        #
+#    Updated: 2021/01/08 12:41:11 by adbenoit         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME		=	libft.a
 
 INC			=	inc/
-
 HEADER		=	$(INC)libft.h
 
 SRC_PATH	=	src/
-
 CHAR_PATH	=	$(SRC_PATH)char/
-
 GNL_PATH	=	$(SRC_PATH)gnl/
-
 LST_PATH	=	$(SRC_PATH)lst/
-
 MEM_PATH	=	$(SRC_PATH)mem/
-
 NBR_PATH	=	$(SRC_PATH)nbr/
-
 PF_PATH		=	$(SRC_PATH)printf/
-
 STR_PATH	=	$(SRC_PATH)str/
-
 TAB_PATH	=	$(SRC_PATH)tab/
 
 MEM			=	ft_memset.c			ft_bzero.c			ft_memcpy.c \
@@ -138,6 +129,15 @@ fclean: clean
 	@$(RM) $(NAME) 
 	@echo "\033[33;1mLibft\033[0;1m: $(NAME) deleted\033[0m"
 
+FILE=norme_error.txt
+ERROR= `cat $(FILE) | grep -B 1 "Error"`
+norme:
+	@printf "\033[33mLaunching ...\033[0m"
+	@~/.norminette/norminette.rb */*/*c */*h > $(FILE)
+	@printf "\rNorme of \033[33;1mLibft\033[0;1m: [\033[1;32mOK\033[0;1m]\033[0m"
+	@ echo "\r$(ERROR)"
+	@rm $(FILE)
+
 re: fclean all
 
 .PHONY: all clean fclean re bonus
@@ -169,3 +169,5 @@ debug :
 	@echo "\n\033[34;1m$(TAB_PATH) = \033[0;m"$(TAB)
 	@printf "\033[35;1mls = \033[0;m"
 	@ls $(TAB_PATH)
+	@echo "\n\033[34;1mNORM = \033[0;m"$(NORM)
+	@echo "\n\033[34;1mREF = \033[0;m"$(REF)
