@@ -8,6 +8,10 @@ The aim of this project is to code a C library regrouping usual functions that y
 
 ## Usage
 
-`make`
+```
+$ git clone https://github.com/adbenoit-9/42_libft.git
+$ cd 42_libft/
+$ make
+```
 
 util: `make norme`
