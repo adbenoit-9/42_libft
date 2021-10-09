@@ -6,7 +6,7 @@
 /*   By: adbenoit <adbenoit@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/04 15:39:46 by adbenoit          #+#    #+#             */
-/*   Updated: 2021/01/06 01:58:17 by adbenoit         ###   ########.fr       */
+/*   Updated: 2021/10/09 19:51:40 by adbenoit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 int	ft_atoi(const char *str)
 {
-	int i;
-	int num;
-	int neg;
+	int	i;
+	int	num;
+	int	neg;
 
 	i = 0;
 	neg = 1;

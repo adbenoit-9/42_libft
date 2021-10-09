@@ -6,7 +6,7 @@
 /*   By: adbenoit <adbenoit@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/07 14:40:10 by adbenoit          #+#    #+#             */
-/*   Updated: 2021/01/06 16:02:10 by adbenoit         ###   ########.fr       */
+/*   Updated: 2021/10/09 19:53:02 by adbenoit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ static size_t	ft_size(int n)
 	return (size);
 }
 
-char			*ft_itoa(int n)
+char	*ft_itoa(int n)
 {
 	char	*nb;
 	size_t	neg;
@@ -42,7 +42,8 @@ char			*ft_itoa(int n)
 
 	size = ft_size(n);
 	neg = 0;
-	if (!(nb = malloc(sizeof(char) * (size + 1))))
+	nb = malloc(sizeof(char) * (size + 1));
+	if (!nb)
 		return (0);
 	if (n < 0)
 	{
@@ -55,9 +56,8 @@ char			*ft_itoa(int n)
 	nb[size] = 0;
 	while (size > neg)
 	{
-		nb[size - 1] = num % 10 + 48;
+		nb[size-- - 1] = num % 10 + 48;
 		num = num / 10;
-		--size;
 	}
 	return (nb);
 }
