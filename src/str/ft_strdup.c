@@ -6,7 +6,7 @@
 /*   By: adbenoit <adbenoit@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/10 15:24:01 by adbenoit          #+#    #+#             */
-/*   Updated: 2021/01/06 01:58:17 by adbenoit         ###   ########.fr       */
+/*   Updated: 2021/10/09 20:03:24 by adbenoit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,8 @@ char	*ft_strdup(const char *s1)
 	i = 0;
 	while (s1[i])
 		++i;
-	if (!(copy = malloc(sizeof(char) * (i + 1))))
+	copy = malloc(sizeof(char) * (i + 1));
+	if (!copy)
 		return (0);
 	i = 0;
 	while (s1[i])

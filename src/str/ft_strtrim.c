@@ -6,7 +6,7 @@
 /*   By: adbenoit <adbenoit@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/06 12:46:09 by adbenoit          #+#    #+#             */
-/*   Updated: 2021/01/06 01:56:40 by adbenoit         ###   ########.fr       */
+/*   Updated: 2021/10/09 20:02:23 by adbenoit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ static int	ft_len(int *count1, int *count2, char const *s1,
 	return (*count2 - *count1 + 1);
 }
 
-char		*ft_strtrim(char const *s1, char const *set)
+char	*ft_strtrim(char const *s1, char const *set)
 {
 	int		i;
 	int		len;
@@ -51,7 +51,8 @@ char		*ft_strtrim(char const *s1, char const *set)
 	count2 = ft_strlen(s1) - 1;
 	len = ft_len(&count1, &count2, s1, set);
 	i = 0;
-	if (!(str = malloc(sizeof(char) * (len + 1))))
+	str = malloc(sizeof(char) * (len + 1));
+	if (!str)
 		return (0);
 	while (count1 <= count2)
 	{

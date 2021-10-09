@@ -6,7 +6,7 @@
 /*   By: adbenoit <adbenoit@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/06 16:49:10 by adbenoit          #+#    #+#             */
-/*   Updated: 2021/01/06 16:04:27 by adbenoit         ###   ########.fr       */
+/*   Updated: 2021/10/09 19:58:33 by adbenoit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ static size_t	ft_size(char const *s, char c, size_t i)
 	return (size);
 }
 
-char			**ft_split(char const *s, char c)
+char	**ft_split(char const *s, char c)
 {
 	char	**tab;
 	size_t	i;
@@ -55,15 +55,17 @@ char			**ft_split(char const *s, char c)
 
 	if (s == NULL)
 		return (NULL);
+	tab = malloc(sizeof(char *) * (ft_countrow(s, c) + 1));
+	if (!tab)
+		return (0);
 	i = 0;
 	k = -1;
-	if (!(tab = malloc(sizeof(char*) * (ft_countrow(s, c) + 1))))
-		return (0);
 	while (++k < ft_countrow(s, c))
 	{
 		while (s[i] == c && s[i])
 			++i;
-		if (!(tab[k] = malloc(sizeof(char) * (ft_size(s, c, i) + 1))))
+		tab[k] = malloc(sizeof(char) * (ft_size(s, c, i) + 1));
+		if (!tab)
 			return (ft_freetab(tab));
 		j = -1;
 		--i;
