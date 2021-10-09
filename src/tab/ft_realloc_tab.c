@@ -6,7 +6,7 @@
 /*   By: adbenoit <adbenoit@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/06 01:29:42 by adbenoit          #+#    #+#             */
-/*   Updated: 2021/01/06 02:04:35 by adbenoit         ###   ########.fr       */
+/*   Updated: 2021/10/09 20:05:33 by adbenoit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,8 @@ char	**ft_realloc_tab(char **ptr, size_t newsize)
 	i = 0;
 	while (newptr && i < size)
 	{
-		if (!(newptr[i] = ft_strdup(ptr[i])))
+		newptr[i] = ft_strdup(ptr[i]);
+		if (!newptr[i])
 			break ;
 		++i;
 	}

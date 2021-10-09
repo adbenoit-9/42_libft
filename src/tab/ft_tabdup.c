@@ -6,7 +6,7 @@
 /*   By: adbenoit <adbenoit@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/06 01:26:19 by adbenoit          #+#    #+#             */
-/*   Updated: 2021/01/06 02:04:35 by adbenoit         ###   ########.fr       */
+/*   Updated: 2021/10/09 20:05:44 by adbenoit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,11 +22,13 @@ char	**ft_tabdup(char *tab[])
 	size = 0;
 	i = 0;
 	size = ft_tabsize(tab);
-	if (!(copy = malloc(sizeof(char *) * (size + 1))))
+	copy = malloc(sizeof(char *) * (size + 1));
+	if (!copy)
 		return (NULL);
 	while (i < size)
 	{
-		if (!(copy[i] = ft_strdup(tab[i])))
+		copy[i] = ft_strdup(tab[i]);
+		if (!copy[i])
 		{
 			ft_freetab(copy);
 			return (NULL);
