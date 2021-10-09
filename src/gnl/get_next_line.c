@@ -6,7 +6,7 @@
 /*   By: adbenoit <adbenoit@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/12 15:44:13 by adbenoit          #+#    #+#             */
-/*   Updated: 2021/01/08 15:29:48 by adbenoit         ###   ########.fr       */
+/*   Updated: 2021/10/09 19:47:42 by adbenoit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,7 +108,7 @@ static int	ft_get_line(char **line, t_gnl *gnl, t_list **lst, char *buf)
 	return (status);
 }
 
-int			get_next_line(int fd, char **line)
+int	get_next_line(int fd, char **line)
 {
 	t_gnl			gnl;
 	static char		buf[BUFFER_SIZE + 1];
