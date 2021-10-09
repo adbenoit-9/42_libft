@@ -6,7 +6,7 @@
 /*   By: adbenoit <adbenoit@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/05 15:53:43 by adbenoit          #+#    #+#             */
-/*   Updated: 2021/01/06 02:03:28 by adbenoit         ###   ########.fr       */
+/*   Updated: 2021/10/09 19:50:19 by adbenoit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,8 @@ void	*ft_memmove(void *dst, const void *src, size_t len)
 		}
 		else
 		{
-			((unsigned char *)dst)[i + len - 1] =
-							((unsigned char *)src)[len - 1];
+			((unsigned char *)dst)[i + len - 1]
+				= ((unsigned char *)src)[len - 1];
 			--len;
 		}
 	}
