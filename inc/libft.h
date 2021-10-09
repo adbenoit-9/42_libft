@@ -6,7 +6,7 @@
 /*   By: adbenoit <adbenoit@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/08 20:16:25 by adbenoit          #+#    #+#             */
-/*   Updated: 2021/07/05 13:40:09 by adbenoit         ###   ########.fr       */
+/*   Updated: 2021/10/09 19:46:13 by adbenoit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 # include <string.h>
 # include "get_next_line.h"
 
-typedef struct	s_list
+typedef struct s_list
 {
 	void			*content;
 	struct s_list	*next;
@@ -62,7 +62,7 @@ char			*ft_strtrim(char const *s1, char const *set);
 char			*ft_substr(char const *s, unsigned int start, size_t len);
 char			*ft_realloc(char *ptr, size_t newsize);
 char			*ft_strnstr(const char *haystack, const char *needle,
-														size_t len);
+					size_t len);
 
 /*
 ** functions for manipulating characters
@@ -98,7 +98,7 @@ void			ft_lstdelone(t_list *lst, void (*del)(void *));
 void			ft_lstclear(t_list **lst, void (*del)(void *));
 void			ft_lstiter(t_list *lst, void (*f)(void *));
 t_list			*ft_lstmap(t_list *lst, void *(*f)(void *),
-										void (*del)(void *));
+					void (*del)(void *));
 
 /*
 ** functions for manipulating tables
