@@ -6,7 +6,7 @@
 /*   By: adbenoit <adbenoit@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/06 01:30:11 by adbenoit          #+#    #+#             */
-/*   Updated: 2021/01/06 01:31:13 by adbenoit         ###   ########.fr       */
+/*   Updated: 2023/02/27 17:33:49 by adbenoit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,7 @@ void	*ft_freetab(char **tab)
 	int	i;
 
 	i = 0;
-	while (tab[i])
-	{
+	while (tab[i]) {
 		free(tab[i]);
 		++i;
 	}
