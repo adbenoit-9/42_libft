@@ -6,7 +6,7 @@
 /*   By: adbenoit <adbenoit@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/04 12:57:29 by adbenoit          #+#    #+#             */
-/*   Updated: 2021/10/09 19:54:10 by adbenoit         ###   ########.fr       */
+/*   Updated: 2023/02/27 17:28:16 by adbenoit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,8 @@ size_t	ft_strlen(const char *s)
 	size_t	i;
 
 	i = 0;
-	while (s[i])
+	while (s[i]) {
 		++i;
+	}
 	return (i);
 }

@@ -6,7 +6,7 @@
 /*   By: adbenoit <adbenoit@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/06 02:18:48 by adbenoit          #+#    #+#             */
-/*   Updated: 2021/01/06 02:22:18 by adbenoit         ###   ########.fr       */
+/*   Updated: 2023/02/27 17:29:29 by adbenoit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,11 @@ char	*ft_strncpy(char *dest, const char *src, size_t n)
 {
 	size_t	i;
 
-	if (dest == NULL || src == NULL)
+	if (dest == NULL || src == NULL) {
 		return (dest);
+	}
 	i = 0;
-	while (src[i] && i < n)
-	{
+	while (src[i] && i < n) {
 		dest[i] = src[i];
 		++i;
 	}

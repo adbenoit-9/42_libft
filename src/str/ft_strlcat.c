@@ -6,7 +6,7 @@
 /*   By: adbenoit <adbenoit@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/04 11:20:36 by adbenoit          #+#    #+#             */
-/*   Updated: 2021/01/06 01:53:27 by adbenoit         ###   ########.fr       */
+/*   Updated: 2023/02/27 17:27:42 by adbenoit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,13 +23,15 @@ size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 	k = i;
 	l = ft_strlen(src);
 	j = 0;
-	while (src[j] && i < dstsize - 1 && dstsize)
+	while (src[j] && i < dstsize - 1 && dstsize) {
 		dst[i++] = src[j++];
+	}
 	if (dstsize > k)
 	{
 		dst[i] = 0;
 		return (l + k);
 	}
-	else
+	else {
 		return (l + dstsize);
+	}
 }

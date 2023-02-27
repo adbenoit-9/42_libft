@@ -6,7 +6,7 @@
 /*   By: adbenoit <adbenoit@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/07 19:25:11 by adbenoit          #+#    #+#             */
-/*   Updated: 2021/01/06 01:50:31 by adbenoit         ###   ########.fr       */
+/*   Updated: 2023/02/27 17:15:54 by adbenoit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,7 @@ void	ft_putstr_fd(char *s, int fd)
 {
 	size_t	len;
 
-	if (s)
-	{
+	if (s) {
 		len = ft_strlen(s);
 		write(fd, s, len);
 	}

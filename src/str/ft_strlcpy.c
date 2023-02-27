@@ -6,7 +6,7 @@
 /*   By: adbenoit <adbenoit@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/03 16:40:57 by adbenoit          #+#    #+#             */
-/*   Updated: 2021/10/09 19:53:57 by adbenoit         ###   ########.fr       */
+/*   Updated: 2023/02/27 17:28:05 by adbenoit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,17 +18,19 @@ size_t	ft_strlcpy(char *dest, const char *src, size_t dstsize)
 	size_t	j;
 
 	j = 0;
-	while (src[j] != 0)
+	while (src[j] != 0) {
 		++j;
+	}
 	i = 0;
-	if (dstsize == 0)
+	if (dstsize == 0) {
 		return (j);
-	while (i < dstsize - 1 && src[i] != '\0')
-	{
+	}
+	while (i < dstsize - 1 && src[i] != '\0') {
 		dest[i] = src[i];
 		++i;
 	}
-	if (dstsize > 0)
+	if (dstsize > 0) {
 		dest[i] = '\0';
+	}
 	return (j);
 }

@@ -6,7 +6,7 @@
 /*   By: adbenoit <adbenoit@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/03 20:55:52 by adbenoit          #+#    #+#             */
-/*   Updated: 2021/10/09 20:01:26 by adbenoit         ###   ########.fr       */
+/*   Updated: 2023/02/27 17:29:11 by adbenoit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,11 +21,13 @@ int	ft_strncmp(const char *s1, const char *s2, size_t n)
 		return (0);
 	while (s1[i] && s2[i] && i < n)
 	{
-		if (s1[i] != s2[i])
+		if (s1[i] != s2[i]) {
 			return ((unsigned char)s1[i] - (unsigned char)s2[i]);
+		}
 		++i;
 	}
-	if (i != n)
+	if (i != n) {
 		return ((unsigned char)s1[i] - (unsigned char)s2[i]);
+	}
 	return (0);
 }
