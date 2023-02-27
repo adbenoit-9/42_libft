@@ -6,7 +6,7 @@
 /*   By: adbenoit <adbenoit@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/14 14:17:42 by adbenoit          #+#    #+#             */
-/*   Updated: 2021/10/09 19:45:05 by adbenoit         ###   ########.fr       */
+/*   Updated: 2023/02/27 17:36:13 by adbenoit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,12 +22,12 @@
 
 # define BUFFER_SIZE 4096
 
-typedef struct s_gnl
+typedef struct	s_gnl
 {
-	int		fd;
+	int	fd;
 	size_t	len;
-}				t_gnl;
+}		t_gnl;
 
-int				get_next_line(int fd, char **line);
+int	get_next_line(int fd, char **line);
 
 #endif
