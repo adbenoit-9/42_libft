@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_isalpha.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: adbenoit <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: adbenoit <adbenoit@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/04 13:25:56 by adbenoit          #+#    #+#             */
-/*   Updated: 2019/11/11 14:05:43 by adbenoit         ###   ########.fr       */
+/*   Updated: 2023/02/27 16:47:51 by adbenoit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,11 @@
 
 int	ft_isalpha(int c)
 {
-	if ((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z'))
-		return (1);
-	else
-		return (0);
+	int	ret;
+
+	ret = 0;
+	if ((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z')) {
+		ret = 1;
+	}
+	return (ret);
 }

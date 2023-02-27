@@ -6,7 +6,7 @@
 /*   By: adbenoit <adbenoit@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/04 13:40:18 by adbenoit          #+#    #+#             */
-/*   Updated: 2021/10/09 19:47:02 by adbenoit         ###   ########.fr       */
+/*   Updated: 2023/02/27 16:48:03 by adbenoit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,12 @@
 
 int	ft_isalnum(int c)
 {
+	int	ret;
+
+	ret = 0;
 	if ((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z')
-		|| (c >= '0' && c <= '9'))
-		return (1);
-	else
-		return (0);
+	    || (c >= '0' && c <= '9')) {
+		ret = 1;
+	}
+	return (ret);
 }
