@@ -6,7 +6,7 @@
 /*   By: adbenoit <adbenoit@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/05 16:22:02 by adbenoit          #+#    #+#             */
-/*   Updated: 2021/10/09 19:49:50 by adbenoit         ###   ########.fr       */
+/*   Updated: 2023/02/27 17:07:41 by adbenoit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,13 +17,14 @@ int	ft_memcmp(const void *s1, const void *s2, size_t n)
 	size_t	i;
 
 	i = 0;
-	while (i < n)
-	{
-		if (((unsigned char *)s1)[i] != ((unsigned char *)s2)[i])
+	while (i < n) {
+		if (((unsigned char *)s1)[i] != ((unsigned char *)s2)[i]) {
 			return (((unsigned char *)s1)[i] - ((unsigned char *)s2)[i]);
+		}
 		++i;
 	}
-	if (i != n)
+	if (i != n) {
 		return (((unsigned char *)s1)[i] - ((unsigned char *)s2)[i]);
+	}
 	return (0);
 }
