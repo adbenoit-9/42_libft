@@ -6,7 +6,7 @@
 /*   By: adbenoit <adbenoit@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/12 15:44:13 by adbenoit          #+#    #+#             */
-/*   Updated: 2021/10/09 19:47:42 by adbenoit         ###   ########.fr       */
+/*   Updated: 2023/02/27 16:53:44 by adbenoit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,12 +18,12 @@ static void	ft_reset_buf(char *buf)
 	size_t	j;
 
 	i = 0;
-	while (buf[i] && buf[i] != '\n')
+	while (buf[i] && buf[i] != '\n') {
 		++i;
+	}
 	++i;
 	j = 0;
-	while (buf[i])
-	{
+	while (buf[i]) {
 		buf[j] = buf[i];
 		++i;
 		++j;
@@ -38,8 +38,7 @@ static int	ft_set_line(char *buf, size_t *len, t_list **lst)
 	t_list	*new;
 
 	i = 0;
-	while (buf[i] && buf[i] != '\n')
-	{
+	while (buf[i] && buf[i] != '\n') {
 		++(*len);
 		++i;
 	}
@@ -47,8 +46,7 @@ static int	ft_set_line(char *buf, size_t *len, t_list **lst)
 	if (str == NULL)
 		return (-1);
 	new = ft_lstnew(str);
-	if (new == NULL)
-	{
+	if (new == NULL) {
 		free(str);
 		return (-1);
 	}
@@ -67,14 +65,12 @@ static int	ft_put_line(t_list **lst, char **line, size_t len)
 	if (*line == NULL)
 		return (-1);
 	i = 0;
-	while (i < len + 1)
-	{
+	while (i < len + 1) {
 		(*line)[i] = 0;
 		++i;
 	}
 	tmp = *lst;
-	while (tmp)
-	{
+	while (tmp) {
 		ft_strcat(*line, tmp->content);
 		tmp = tmp->next;
 	}
@@ -88,8 +84,7 @@ static int	ft_get_line(char **line, t_gnl *gnl, t_list **lst, char *buf)
 
 	ret = read(gnl->fd, buf, BUFFER_SIZE);
 	buf[ret] = 0;
-	while (ret == BUFFER_SIZE)
-	{
+	while (ret == BUFFER_SIZE) {
 		status = ft_set_line(buf, &gnl->len, lst);
 		if (status == -1)
 			return (-1);
@@ -100,8 +95,7 @@ static int	ft_get_line(char **line, t_gnl *gnl, t_list **lst, char *buf)
 	}
 	if (ret < BUFFER_SIZE)
 		status = ft_set_line(buf, &gnl->len, lst);
-	if (status == 0)
-	{
+	if (status == 0) {
 		ft_put_line(lst, line, gnl->len);
 		buf[0] = 0;
 	}
@@ -123,8 +117,7 @@ int	get_next_line(int fd, char **line)
 	status = ft_set_line(buf, &gnl.len, &lst);
 	if (status == 0)
 		status = ft_get_line(line, &gnl, &lst, buf);
-	if (status == 1)
-	{
+	if (status == 1) {
 		ft_reset_buf(buf);
 		status = ft_put_line(&lst, line, gnl.len);
 	}
